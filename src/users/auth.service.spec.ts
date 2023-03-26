@@ -10,7 +10,7 @@ it('can create an instance of auth service', async () => {
     create: async (email: string, password: string) =>
       Promise.resolve({ id: 1, email, password }),
     findUsersByEmail: async (_email: string) => Promise.resolve([]),
-  };
+  } as UsersService;
 
   const module = await Test.createTestingModule({
     providers: [
