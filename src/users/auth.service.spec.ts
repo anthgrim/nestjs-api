@@ -1,7 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { UsersService } from './users.service';
-import { User } from './user.entity';
 
 it('can create an instance of auth service', async () => {
   // Create fake copy of users service
