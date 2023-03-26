@@ -6,11 +6,6 @@ import { User } from './user.entity';
 
 const scrypt = promisify(_scrypt);
 
-interface ValidationResponse {
-  valid: boolean;
-  user: User | undefined;
-}
-
 /**
  * @description Takes a string and returns encrypted string with format salt.hashed
  * @param {string} password
