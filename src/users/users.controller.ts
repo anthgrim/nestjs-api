@@ -12,13 +12,13 @@ import {
   BadRequestException,
   UseGuards,
 } from '@nestjs/common';
-import { Serialize } from 'src/interceptors';
+import { Serialize } from '../interceptors/serialize.interceptor';
 import { AuthService } from './auth.service';
 import { CreateUserDto, UpdateUserDto, UserDto } from './DTOs';
 import { UsersService } from './users.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './user.entity';
-import { AuthGuard } from 'src/guards/auth.guards';
+import { AuthGuard } from '../guards/auth.guards';
 
 @Controller('auth')
 @Serialize(UserDto)
@@ -27,11 +27,6 @@ export class UsersController {
     private usersService: UsersService,
     private authService: AuthService,
   ) {}
-
-  // @Get('/whoami')
-  // async whoAmI(@Session() session: any) {
-  //   return this.usersService.findUserById(session.userId);
-  // }
 
   @Get('/whoami')
   @UseGuards(AuthGuard)
