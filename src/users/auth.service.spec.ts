@@ -4,7 +4,7 @@ import { User } from './user.entity';
 import { UsersService } from './users.service';
 import { BadRequestException } from '@nestjs/common';
 
-enum MOCK_CREDENTIALS {
+export enum MOCK_CREDENTIALS {
   email = 'test@test.com',
   password = 'test123',
 }
