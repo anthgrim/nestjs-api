@@ -53,6 +53,13 @@ export class AuthService {
   async validateCredentials(email: string, password: string) {
     const [user] = await this.usersService.findUsersByEmail(email);
 
+    if (!user) {
+      return {
+        valid: false,
+        user,
+      };
+    }
+
     const isValidPassword = await comparePassword(user.password, password);
 
     return {
